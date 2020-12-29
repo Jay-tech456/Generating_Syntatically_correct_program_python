@@ -2,10 +2,10 @@
 This program creates a random "syntactically" correct program
 
 
-To understand program, we must understand the difference between a syntatically correct program versus and semantically correct program.
+In order toprogram, we must understand the difference between a syntatically correct program versus and semantically correct program.
 
-When a program is "syntatically" correct, it mean that it follows the general rule of the program's grammer. In english language, we are taught to 
-capitalize the first letter in the sentence, have a noun and a verb followed with the noun, and end the entire sentence with a punchuation. Programming 
+When a program is "syntatically" correct, it follows the general rule of the program's grammer. In english language, we are taught to 
+capitalize the first letter in the sentence, have a noun, a verb after the noun, and a punctuation at the end of the sentence. Programming 
 is no difference, we still have to follow the rules of grammer that is present within the programs syntax.
     
       A sentence that is syntatically correct:
@@ -20,8 +20,9 @@ is no difference, we still have to follow the rules of grammer that is present w
              }
              
 When a program is "semantically" correct translates to everything in the program makes logically sense and there is no error. Going back to grade school,
-we were taught that 2 + 2 has to equal 4, and it is valid. Programming follows through a similar position where everything in the program haas to make logical
-sence. In C++, we have to declare the necessary libraries, have a main with a single well-defined entry point and a single well-defined exit point. 
+we were taught that 2 + 2 has to equal 4, and it is valid. Programming follows through a similar position where everything in the program has to make logical
+sence. In C++, we have to declare the necessary libraries, have a main with a single well-defined entry point and a single well-defined exit point, does
+your variable matches the primative data type, is your 'if' else statement properly declared, etc. 
 
 A program can be syntatically correct, but not semantically correct; however, it will not run and often throw an error.
     For example:
