@@ -1,6 +1,6 @@
-import random
 from re import search
 import string
+import secrets
 
 
 def stats(syntax):
@@ -11,7 +11,7 @@ def stats(syntax):
 
     elif prod == '<iter_stat>':
         List = ['\nwhile (<exp>) \n\t<stat>', '\nwhile(<exp>) \n\t<cmpd_stat>']
-        index = random.choice(range(len(List)))
+        index = secrets.SystemRandom().choice(range(len(List)))
         List = List[index]
         return syntax.replace(prod, List)
 
@@ -21,7 +21,7 @@ def stats(syntax):
 
     elif prod == '<decl_stat>':
         List = ["<type><id>;", "<type><assgn_stat>"]
-        Index = random.choice(range(len(List)))
+        Index = secrets.SystemRandom().choice(range(len(List)))
         List = List[Index]
         return syntax.replace(prod, List)
 
@@ -31,7 +31,7 @@ def stats(syntax):
                   '\nif (<exp>) \n<cmpd_stat> \nelse \n<stat>'
                   '\nif (<exp>) \n<stat> \nelse \n\t<cmpd_stat>\n',
                   '\nif (<exp>) \n<cmpd_stat> \nelse \n<cmpd_stat>\n']
-        Index = random.choice(range(len(List)))
+        Index = secrets.SystemRandom().choice(range(len(List)))
         List = List[Index]
         return syntax.replace(prod, List)
     else:
@@ -42,7 +42,7 @@ def expansion(syntax):
 
     if prod == '<stat_list>':
         List = ['<stat><stat_list>', '<stat>']
-        index = random.choice(range(len(List)))
+        index = secrets.SystemRandom().choice(range(len(List)))
         List = List[index]
         return syntax.replace(prod, List)
 
@@ -50,7 +50,7 @@ def expansion(syntax):
         List = ['<cmpd_stat>', '<if_stat>',
                     '<iter_stat>', '<assgn_stat>',
                     '<decl_stat>']
-        Index = random.choice(range(len(List)))
+        Index = secrets.SystemRandom().choice(range(len(List)))
         return syntax.replace(prod, List[Index])
 
     elif prod == '<prog>':
@@ -65,18 +65,18 @@ def type_op_ex(syntax):
 
     if production == '<exp>':
        List = ['<id>', '<exp><op><exp>']
-       index = random.choice(range(len(List)))
+       index = secrets.SystemRandom().choice(range(len(List)))
        List = List[index]
        return syntax.replace(production, List)
     elif production == '<op>':
         List = [' = ', ' + ', ' * ', ' / ']
-        index = random.choice(range(len(List)))
+        index = secrets.SystemRandom().choice(range(len(List)))
         List = List[index]
         return syntax.replace(production, List)
 
     elif production == '<type>':
         List = ["\nint ", '\ndouble ']
-        index = random.choice(range(len(List)))
+        index = secrets.SystemRandom().choice(range(len(List)))
         List = List[index]
         return syntax.replace(production, List)
 
@@ -86,7 +86,7 @@ def type_op_ex(syntax):
 
     elif production == '<char_digit_seq>':
         List = ['[empty]', '<char><char_digit_seq>', '<digit><char_digit_seq>']
-        index = random.choice(range(len(List)))
+        index = secrets.SystemRandom().choice(range(len(List)))
         List = List[index]
         return syntax.replace(production, List)
 
@@ -99,11 +99,11 @@ def type_op_ex(syntax):
 def constants(syntax):
     prod = search('<[A-Za-z_]*>', syntax).group()
     if prod == '<char>':
-        character = random.choice(string.ascii_letters)
+        character = secrets.SystemRandom().choice(string.ascii_letters)
         return syntax.replace(prod, character)
     elif '<digit>':
         List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-        index = random.choice(range(len(List)))
+        index = secrets.SystemRandom().choice(range(len(List)))
         List = List[index]
         return syntax.replace(prod, List)
 
