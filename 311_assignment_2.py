@@ -4,8 +4,7 @@ import string
 
 
 def stats(syntax):
-    prod= search('<[A-Za-z_]*>', syntax).group()
-    if prod == '<cmpd_stat>':
+    if (prod := search('<[A-Za-z_]*>', syntax).group()) == '<cmpd_stat>':
         b = '{<stat_list>}'
         return syntax.replace(prod, b)
 
@@ -38,9 +37,8 @@ def stats(syntax):
         return
 
 def expansion(syntax):
-    prod = search('<[A-Za-z_]*>', syntax).group()
 
-    if prod == '<stat_list>':
+    if (prod := search('<[A-Za-z_]*>', syntax).group()) == '<stat_list>':
         List = ['<stat><stat_list>', '<stat>']
         index = random.choice(range(len(List)))
         List = List[index]
@@ -61,9 +59,8 @@ def expansion(syntax):
         return
 
 def type_op_ex(syntax):
-    production = search('<[A-Za-z_]*>', syntax).group()
 
-    if production == '<exp>':
+    if (production := search('<[A-Za-z_]*>', syntax).group()) == '<exp>':
        List = ['<id>', '<exp><op><exp>']
        index = random.choice(range(len(List)))
        List = List[index]
@@ -97,8 +94,7 @@ def type_op_ex(syntax):
         return
 
 def constants(syntax):
-    prod = search('<[A-Za-z_]*>', syntax).group()
-    if prod == '<char>':
+    if (prod := search('<[A-Za-z_]*>', syntax).group()) == '<char>':
         character = random.choice(string.ascii_letters)
         return syntax.replace(prod, character)
     elif '<digit>':
@@ -109,9 +105,8 @@ def constants(syntax):
 
 syntax = "<prog>"
 while search('<' and '>', syntax):
-    production = search('<[A-Za-z_]*>', syntax).group()
 
-    if production == '<prog>':
+    if (production := search('<[A-Za-z_]*>', syntax).group()) == '<prog>':
         syntax = expansion(syntax)
 
     elif production == '<stat>':
