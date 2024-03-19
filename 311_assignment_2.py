@@ -28,7 +28,7 @@ def stats(syntax):
     elif prod == '<if_stat>':
         List = ['\nif (<exp>) \n<stat>', '\nif ( <exp>) \n<cmpd_stat>\n',
                   '\nif (<exp>) \n<stat> \nelse \n<stat>',
-                  '\nif (<exp>) \n<cmpd_stat> \nelse \n<stat>'
+                  '\nif (<exp>) \n<cmpd_stat> \nelse \n<stat>',
                   '\nif (<exp>) \n<stat> \nelse \n\t<cmpd_stat>\n',
                   '\nif (<exp>) \n<cmpd_stat> \nelse \n<cmpd_stat>\n']
         Index = random.choice(range(len(List)))
